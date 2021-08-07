@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+{% for product in products%}
+<div class="product-name">
+	<a href="{% url 'products'%}">{{product.product_name}}</a>
+</div>
+<div class="product-price">{{product.product_price}}</div>
+<div class="product-rating">{{product.product_rating}}</div>
+{% endfor %}
+
+<form method="POST" action="search">
+{% csrf_token %}
+<input class="search-products" placeholder="search" name="searched"><button type="submit">Search</button>
+</form>
+</body>
